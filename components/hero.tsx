@@ -42,7 +42,7 @@ export function Hero() {
   }, [])
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen min-h-[800px] overflow-hidden pb-20">
       {/* Background base */}
       <div className="absolute inset-0 bg-[hsl(var(--hero-bg))]" />
 
@@ -92,10 +92,10 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <Link href="/register">
             <ShimmerButton 
-              shimmerColor="rgba(255, 255, 255, 0.2)"
-              background="rgba(0, 0, 0, 0.2)"
+              shimmerColor="rgba(99, 102, 241, 0.2)"
+              background="rgba(79, 70, 229, 0.1)"
               shimmerDuration="2s"
-              className="bg-gradient-to-br from-blue-500/15 via-violet-400/10 to-fuchsia-500/5 h-10 px-6 text-sm font-medium tracking-wide rounded-full"
+              className="bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 h-10 px-6 text-sm font-medium tracking-wide rounded-full"
             >
               Register Interest
             </ShimmerButton>

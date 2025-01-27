@@ -7,6 +7,10 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 import Link from "next/link";
+import { VoiceChat } from '../voice-chat/VoiceChat';
+import Iphone15Pro from './iphone-15-pro';
+import { Globe as GlobeIcon } from "lucide-react";
+import { ConversationDemo } from '../ConversationDemo';
 
 export function FeaturesSectionWithBentoGrid() {
   const features = [
@@ -16,14 +20,14 @@ export function FeaturesSectionWithBentoGrid() {
         "Medical Superintelligence will enable 360° evidence-based health decisions for everyone. Your medical history and realtime data provide a snapshot of your body, matched with the highest ranked research informing triage and diagnosis alongside your doctors.",
       skeleton: <SkeletonOne />,
       className:
-        "col-span-1 md:col-span-4 lg:col-span-4 border-b md:border-r dark:border-neutral-800",
+        "col-span-1 md:col-span-3 lg:col-span-3 border-b md:border-r border-zinc-200",
     },
     {
-      title: "Our Team",
+      title: "Althea Chat",
       description:
-        "We are a team of innovators who are passionate about helping you understand your health better to live longer and healthier lives.",
+        "Secure, encrypted messaging system that enables seamless communication between you, Althea, and your healthcare providers for coordinated care.",
       skeleton: <SkeletonTwo />,
-      className: "col-span-1 md:col-span-2 lg:col-span-2 border-b dark:border-neutral-800",
+      className: "col-span-1 md:col-span-3 lg:col-span-3 border-b md:border-r border-zinc-200",
     },
     {
       title: "Our Mission",
@@ -31,7 +35,7 @@ export function FeaturesSectionWithBentoGrid() {
         "Every single person on earth should have the best possible understanding of their health.",
       skeleton: <SkeletonThree />,
       className:
-        "col-span-1 md:col-span-3 lg:col-span-3 border-b md:border-r dark:border-neutral-800",
+        "col-span-1 md:col-span-3 lg:col-span-3 border-b md:border-r border-zinc-200",
     },
     {
       title: "Your Privacy, Our Priority",
@@ -45,18 +49,8 @@ export function FeaturesSectionWithBentoGrid() {
 
   return (
     <div className="relative z-20 py-10 lg:py-40 max-w-7xl mx-auto">
-      <div className="px-8">
-        <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
-          About λLTHEλ
-        </h4>
-
-        <p className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
-          Empowering humanity through accessible medical superintelligence
-        </p>
-      </div>
-
       <div className="relative">
-        <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800">
+        <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-6 mt-12 xl:border rounded-md border-zinc-200">
           {features.map((feature) => (
             <FeatureCard key={feature.title} className={feature.className}>
               <FeatureTitle>{feature.title}</FeatureTitle>
@@ -86,7 +80,7 @@ const FeatureCard = ({
 
 const FeatureTitle = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <p className="max-w-5xl mx-auto text-left tracking-tight text-black dark:text-white text-xl md:text-2xl md:leading-snug">
+    <p className="max-w-5xl mx-auto text-left tracking-tight text-black text-xl md:text-2xl md:leading-snug">
       {children}
     </p>
   );
@@ -97,7 +91,7 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
     <p
       className={cn(
         "text-sm md:text-base max-w-4xl text-left mx-auto",
-        "text-neutral-500 text-center font-normal dark:text-neutral-300",
+        "text-neutral-500 text-center font-normal",
         "text-left max-w-sm mx-0 md:text-sm my-2"
       )}
     >
@@ -108,24 +102,37 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
 
 export const SkeletonOne = () => {
   return (
-    <div className="relative flex py-8 px-2 gap-10 h-full">
-      <div className="w-full p-5 mx-auto bg-white dark:bg-neutral-900 shadow-2xl group h-full">
-        <div className="flex flex-1 w-full h-full flex-col space-y-2">
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="w-full max-w-[350px] max-h-[700px] mx-auto bg-white shadow-2xl group">
+        <div className="flex flex-1 w-full h-full flex-col">
           <Image
-            src="https://ui.aceternity.com/_next/image?url=%2Flinear.webp&w=1920&q=75"
-            alt="Our Vision"
-            width={800}
-            height={800}
-            className="h-full w-full aspect-square object-cover object-left-top rounded-sm"
+            src="/medical-ai.jpg"
+            alt="Medical AI Vision"
+            width={500}
+            height={500}
+            className="w-full aspect-square object-cover object-center rounded-sm"
           />
         </div>
       </div>
-
-      <div className="absolute bottom-0 z-40 inset-x-0 h-60 bg-gradient-to-t from-white dark:from-black via-white dark:via-black to-transparent w-full pointer-events-none" />
-      <div className="absolute top-0 z-40 inset-x-0 h-60 bg-gradient-to-b from-white dark:from-black via-transparent to-transparent w-full pointer-events-none" />
     </div>
   );
 };
+
+
+export const SkeletonTwo = () => {
+  return (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="w-[300px]">
+        <Iphone15Pro>
+          <div className="h-full w-full overflow-hidden bg-white">
+            <ConversationDemo />
+          </div>
+        </Iphone15Pro>
+      </div>
+    </div>
+  );
+};
+
 
 export const SkeletonThree = () => {
   return (
@@ -134,7 +141,7 @@ export const SkeletonThree = () => {
       target="__blank"
       className="relative flex gap-10 h-full group/image"
     >
-      <div className="w-full mx-auto bg-transparent dark:bg-transparent group h-full">
+      <div className="w-full mx-auto bg-transparent group h-full">
         <div className="flex flex-1 w-full h-full flex-col space-y-2 relative">
           <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto" />
           <Image
@@ -150,67 +157,16 @@ export const SkeletonThree = () => {
   );
 };
 
-export const SkeletonTwo = () => {
-  const images = [
-    "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=3149&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=3174&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=2961&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3270&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=3270&auto=format&fit=crop"
-  ];
-
-  const imageVariants = {
-    whileHover: {
-      scale: 1.1,
-      rotate: 0,
-      zIndex: 100,
-    },
-    whileTap: {
-      scale: 1.1,
-      rotate: 0,
-      zIndex: 100,
-    },
-  };
-  return (
-    <div className="relative flex flex-col items-center justify-center p-8 h-full overflow-hidden">
-      <div className="flex flex-row flex-wrap justify-center gap-4">
-        {images.map((image, idx) => (
-          <motion.div
-            variants={imageVariants}
-            key={idx}
-            style={{
-              rotate: Math.random() * 20 - 10,
-            }}
-            whileHover="whileHover"
-            whileTap="whileTap"
-            className="rounded-xl p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 flex-shrink-0 overflow-hidden"
-          >
-            <Image
-              src={image}
-              alt="Team member"
-              width="500"
-              height="500"
-              className="rounded-lg h-24 w-24 md:h-32 md:w-32 object-cover flex-shrink-0"
-            />
-          </motion.div>
-        ))}
-      </div>
-
-      <div className="absolute left-0 z-[100] inset-y-0 w-20 bg-gradient-to-r from-white dark:from-black to-transparent h-full pointer-events-none" />
-      <div className="absolute right-0 z-[100] inset-y-0 w-20 bg-gradient-to-l from-white dark:from-black to-transparent h-full pointer-events-none" />
-    </div>
-  );
-};
 
 export const SkeletonFour = () => {
   return (
-    <div className="h-60 md:h-60 flex flex-col items-center relative bg-transparent dark:bg-transparent mt-10">
-      <Globe className="absolute -right-10 md:-right-10 -bottom-80 md:-bottom-72" />
+    <div className="h-60 md:h-60 flex flex-col items-center relative bg-transparent mt-10">
+      <GlobeComponent className="absolute -right-10 md:-right-10 -bottom-80 md:-bottom-72" />
     </div>
   );
 };
 
-export const Globe = ({ className }: { className?: string }) => {
+export const GlobeComponent = ({ className }: { className?: string }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {

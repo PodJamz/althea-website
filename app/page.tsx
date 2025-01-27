@@ -1,23 +1,41 @@
 import { Navigation } from "@/components/navigation"
 import { Hero } from "@/components/hero"
+import { ChatDemoSection } from "@/components/chat-demo-section"
+import { FeaturesGrid } from "@/components/features-grid"
 import { BlogSection } from "@/components/blog-section"
-import { AboutSection } from "@/components/about-section"
+import { CareersSection } from "@/components/careers-section"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <div className="h-screen overflow-hidden bg-black text-white flex flex-col">
+    <div className="bg-zinc-50">
       <Navigation />
-      <main className="flex-1 overflow-y-auto snap-y snap-mandatory">
-        <div className="snap-start min-h-screen">
+      <main className="h-screen overflow-y-auto">
+        <section className="h-[100vh] relative">
           <Hero />
-        </div>
-        <div className="snap-start min-h-screen">
-          <AboutSection />
-        </div>
-        <div className="snap-start">
+        </section>
+
+        <section className="h-[100vh] relative">
+          <ChatDemoSection />
+        </section>
+
+        {/* Divider */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
+
+        <section className="relative">
+          <FeaturesGrid />
+        </section>
+
+        {/* Divider */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent" />
+
+        <section className="relative min-h-screen">
           <BlogSection />
-        </div>
+        </section>
+
+        <section className="relative">
+          <CareersSection />
+        </section>
         <Footer />
       </main>
     </div>

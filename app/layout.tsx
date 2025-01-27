@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { Footer } from "@/components/footer"
 import { Toaster } from "sonner"
 import { Providers } from "./providers"
 
@@ -20,7 +19,6 @@ export default function RootLayout({
       <body>
         <Providers>
           {children}
-          <Footer />
           <Toaster />
         </Providers>
       </body>

@@ -19,9 +19,10 @@ export function Footer() {
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-sm text-gray-400">
               <li><Link href="/about">About</Link></li>
-              <li><Link href="/careers">Careers</Link></li>
+              <li><Link href="/features">Features</Link></li>
               <li><Link href="/blog">Blog</Link></li>
-            </ul>
+              <li><Link href="/careers">Careers</Link></li>
+            </ul> 
           </div>
           <div>
             <h3 className="font-semibold mb-4">Legal</h3>
